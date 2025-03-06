@@ -19,7 +19,7 @@ export const useImpactLeaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/get-impact-leaderboard");
+        const response = await fetch("/api/get-impact-leaderboard", { cache: "no-store" });
 
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);

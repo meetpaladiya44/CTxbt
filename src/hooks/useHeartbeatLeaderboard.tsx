@@ -19,7 +19,7 @@ export const useHeartbeatLeaderboard = () => {
     const fetchLeaderboard = async () => {
       try {
         setLoading(true);
-        const response = await fetch("/api/get-heartbeat-leaderboard");
+        const response = await fetch("/api/get-heartbeat-leaderboard", { cache: "no-store" });
 
         if (!response.ok) {
           throw new Error("Failed to fetch leaderboard data");

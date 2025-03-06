@@ -15,6 +15,10 @@ import HeartbeatBackground from "./HeartbeatBackground";
 import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 import { useHeartbeatLeaderboard } from "@/hooks/useHeartbeatLeaderboard";
+import { HeartbeatChart } from "./HeartbeatChart"
+import { HeartbeatStats } from "./HeartbeatStats"
+import { HeartbeatComparison } from "./HeartbeatComparison"
+import { HeartbeatTrend } from "./HeartbeatTrend"
 
 const HeartbeatDashboard = () => {
   const container = useRef(null);
@@ -85,6 +89,12 @@ const HeartbeatDashboard = () => {
 
     return (
       <div className="grid gap-4">
+         <HeartbeatStats agents={agents} />
+         <div className="grid grid-cols-1 lg:grid-cols-1 gap-8">
+          <HeartbeatChart agents={agents} />
+          <HeartbeatComparison agents={agents} />
+        </div>
+        <HeartbeatTrend agents={agents} />
         {agents.map((agent, index) => (
           <div
             key={index}
